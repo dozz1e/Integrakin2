@@ -1,241 +1,143 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Integrakin Medicina Estética</title>
-    <!-- Tailwind CSS -->
+    <title>Contacto | Integrakin Medicina Estética</title>
+    <!-- Tailwind CSS with custom config -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="assets/js/tailwind.config.js"></script>
 
     <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syncopate:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Syncopate:wght@400;700&display=swap"
         rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
-
+    
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body class="bg-white text-secondary selection:bg-primary selection:text-white">
+<body class="selection:bg-primary selection:text-white bg-white overflow-x-hidden">
 
-    <!-- Promo Bar -->
     <div id="promo-bar"
-        class="hidden md:block bg-secondary text-white text-[8px] md:text-xs py-2 uppercase font-extrabold tracking-widest text-center sticky top-0 z-50 transition-transform duration-500">
-        ENVÍOS GRATIS A TODO CHILE POR COMPRAS SOBRE $49.990 POR WEBPAY (EXCLUYE MOBILIARIO CLÍNICO)
+        class="hidden md:block bg-obsidiana text-white text-[8px] md:text-xs py-2 uppercase font-extrabold tracking-widest text-center sticky top-0 z-50 transition-transform duration-500">
+        ENVÍOS GRATIS A TODO CHILE POR COMPRAS SOBRE $49.990
     </div>
 
-    <!-- Navigation (Rye Island inspired) -->
-    <header id="main-header" class="fixed top-8 left-0 right-0 z-50 transition-all duration-500 px-6">
-        <div
-            class="container mx-auto px-6 h-20 bg-white/80 backdrop-blur-xl rounded-full border border-gray-100 flex items-center justify-between shadow-sm">
+    <!-- Navigation -->
+    <header id="main-header" class="fixed top-8 left-0 right-0 z-50 transition-all duration-500">
+        <div class="w-full h-20 glass-effect border-b border-obsidiana/5 flex items-center justify-between px-12 shadow-sm">
             <!-- Logo -->
             <a href="index.html" class="flex items-center group">
                 <img src="assets/images/logo.webp" alt="Integrakin"
-                    class="h-8 md:h-10 w-auto object-contain transition-transform duration-500 group-hover:scale-105">
+                    class="h-6 md:h-8 w-auto object-contain transition-transform duration-500 group-hover:scale-105">
             </a>
 
-            <!-- Desktop Nav -->
-            <nav class="hidden lg:flex items-center space-x-10 h-full">
-                <a href="index.html"
-                    class="text-xs font-extrabold uppercase tracking-widest text-secondary hover:text-primary transition-colors">Inicio</a>
+            <!-- Desktop Nav -->            <nav class="hidden lg:flex items-center space-x-12 h-full">
+                <a href="index.html" class="text-[10px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Inicio</a>
+                
                 <!-- Tienda with Mega Menu -->
                 <div class="group h-full flex items-center">
-                    <a href="tienda.html"
-                        class="text-xs font-extrabold uppercase tracking-widest text-secondary hover:text-primary transition-colors flex items-center gap-1">
-                        Tienda <i data-lucide="chevron-down" class="w-2.5 h-2.5"></i>
+                    <a href="tienda.html" class="h-full text-[10px] font-sync text-obsidiana hover:text-primary transition-colors flex items-center gap-2 uppercase">
+                        Tienda <i data-lucide="chevron-down" class="w-3 h-3"></i>
                     </a>
+                    
                     <!-- Mega Menu Dropdown -->
-                    <div
-                        class="fixed top-20 left-1/2 -translate-x-1/2 w-full max-w-screen-2xl pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 z-50 pointer-events-none">
-                        <div
-                            class="bg-white rounded-3xl shadow-2xl p-12 lg:p-16 border border-gray-100 pointer-events-auto flex gap-10">
-                            <div class="grid grid-cols-5 gap-10 flex-1">
-                                <!-- Corporal -->
-                                <div class="flex flex-col">
-                                    <h5
-                                        class="text-xs font-black text-primary uppercase tracking-widest mb-6 border-b border-gray-50 pb-4">
-                                        CORPORALES</h5>
-                                    <ul class="space-y-3">
-                                        <li><a href="tienda.html?cat=body-shape"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Body
-                                                Shape</a></li>
-                                        <li><a href="tienda.html?cat=bodysculptpro"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Bodysculpt
-                                                Pro</a></li>
-                                        <li><a href="tienda.html?cat=criofrecuencia"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Criofrecuencia</a>
-                                        </li>
-                                        <li><a href="tienda.html?cat=criolipolisis"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Criolipólisis</a>
-                                        </li>
-                                        <li><a href="tienda.html?cat=depilacion"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Depilación
-                                                Laser / IPL</a></li>
-                                        <li><a href="tienda.html?cat=electroestimuladores"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Electroestimuladores</a>
-                                        </li>
-                                        <li><a href="tienda.html?cat=hifu"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">HIFU
-                                                Corporal</a></li>
-                                        <li><a href="tienda.html?cat=lipolaser-laserlipolisis"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Lipoláser
-                                                / Laserlipólisis</a></li>
-                                        <li><a href="tienda.html?cat=ondas-de-choque"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Ondas
-                                                de Choque</a></li>
-                                        <li><a href="tienda.html?cat=presoterapia"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Presoterapia</a>
-                                        </li>
-                                        <li><a href="tienda.html?cat=vacuumterapia"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Vacuumterapia
-                                                / Glúteos</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Facial -->
-                                <div class="flex flex-col">
-                                    <h5
-                                        class="text-xs font-black text-primary uppercase tracking-widest mb-6 border-b border-gray-50 pb-4">
-                                        FACIALES</h5>
-                                    <ul class="space-y-3">
-                                        <li><a href="tienda.html?cat=analizadores-de-piel"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Analizadores
-                                                de Piel IA</a></li>
-                                        <li><a href="tienda.html?cat=dermapen"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Dermapen</a>
-                                        </li>
-                                        <li><a href="tienda.html?cat=fototerapia"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Fototerapia</a>
-                                        </li>
-                                        <li><a href="tienda.html?cat=hidrodermoabrasion"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Hidrodermo
-                                                / Hydrapeel</a></li>
-                                        <li><a href="tienda.html?cat=microdermoabrasion"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Microdermoabrasión</a>
-                                        </li>
-                                        <li><a href="tienda.html?cat=peeling-ultrasonico"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Peeling
-                                                Ultrasónico</a></li>
-                                        <li><a href="tienda.html?cat=radiofrecuencia-faciales"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Radiofrecuencia
-                                                Facial</a></li>
-                                        <li><a href="tienda.html?cat=radiofrecuencia-fraccionada"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">RF
-                                                Fraccionada</a></li>
-                                        <li><a href="tienda.html?cat=vapor-ozono"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Vapor
-                                                Ozono</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Rehabilitación -->
-                                <div class="flex flex-col">
-                                    <h5
-                                        class="text-xs font-black text-primary uppercase tracking-widest mb-6 border-b border-gray-50 pb-4">
-                                        REHABILITACIÓN</h5>
-                                    <ul class="space-y-3">
-                                        <li><a href="tienda.html?cat=electroestimulador"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Electroestimulador</a>
-                                        </li>
-                                        <li><a href="tienda.html?cat=manta-termica-sauna"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Manta
-                                                Térmica (Sauna)</a></li>
-                                        <li><a href="tienda.html?cat=ondas-de-choque-rehabilitacion"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Ondas
-                                                de Choque Rehab</a></li>
-                                        <li><a href="tienda.html?cat=tecarterapia"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Tecarterapia</a>
-                                        </li>
-                                        <li><a href="tienda.html?cat=ultrasonido-rehabilitacion"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Ultrasonido
-                                                Rehab</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Mobiliario & Insumos -->
-                                <div class="flex flex-col">
-                                    <h5
-                                        class="text-xs font-black text-primary uppercase tracking-widest mb-6 border-b border-gray-50 pb-4">
-                                        EQUIPAMIENTO</h5>
-                                    <ul class="space-y-3">
-                                        <li><a href="tienda.html?cat=mobiliario"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Mobiliario
-                                                Clínico</a></li>
-                                        <li><a href="tienda.html?cat=mesas-de-apoyo"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Mesas
-                                                de Apoyo</a></li>
-                                        <li><a href="tienda.html?cat=insumos-y-repuestos"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Insumos
-                                                y Repuestos</a></li>
-                                        <li><a href="tienda.html?cat=activos-soluciones"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Activos
-                                                / Soluciones</a></li>
-                                        <li><a href="tienda.html?cat=calentador-de-gel"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Calentador
-                                                de Gel</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Otros -->
-                                <div class="flex flex-col">
-                                    <h5
-                                        class="text-xs font-black text-primary uppercase tracking-widest mb-6 border-b border-gray-50 pb-4">
-                                        SECCIONES</h5>
-                                    <ul class="space-y-3">
-                                        <li><a href="tienda.html?cat=nuevo"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Novedades</a>
-                                        </li>
-                                        <li><a href="tienda.html?cat=ofertas"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block underline decoration-purple underline-offset-4">Ofertas
-                                                Especiales</a></li>
-                                        <li><a href="tienda.html?cat=packs"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Packs
-                                                de Lanzamiento</a></li>
-                                        <li><a href="tienda.html?cat=home-care"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Home
-                                                Care</a></li>
-                                        <li><a href="tienda.html?cat=mas-vendidos"
-                                                class="text-xs font-bold text-secondary hover:text-primary transition-colors block">Más
-                                                Vendidos</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Featured Sidebar -->
-                            <div class="w-80 flex flex-col gap-6">
-                                <div
-                                    class="flex-1 bg-gray-50 rounded-3xl p-8 border border-gray-100 flex flex-col justify-between">
-                                    <div>
-                                        <span
-                                            class="text-xs font-black text-primary uppercase tracking-widest mb-2 block">Marca
-                                            Exclusiva</span>
-                                        <h4 class="font-sync text-lg tracking-tighter mb-2">WONDER®</h4>
-                                        <p
-                                            class="text-xs text-gray-400 font-bold uppercase tracking-widest leading-tight">
-                                            Musculación Estética Profunda.</p>
+                    <div class="fixed top-28 left-0 w-full pt-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 z-50 pointer-events-none mega-menu-dropdown">
+                        <div class="shadow-2xl p-16 border-b border-obsidiana/5 flex justify-center glass-effect pointer-events-auto">
+                            <div class="grid grid-cols-5 gap-8 max-w-screen-2xl w-full">
+                                <!-- Col 1 & 2: Corporales -->
+                                <div class="col-span-2">
+                                    <h5 class="text-[8px] font-sync text-primary uppercase tracking-[0.3em] mb-6 border-b border-obsidiana/10 pb-3">Corporales</h5>
+                                    <div class="grid grid-cols-2 gap-8">
+                                        <ul class="space-y-2">
+                                            <li><a href="tienda.html?cat=bodysculpt" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">BodySculpt Pro</a></li>
+                                            <li><a href="tienda.html?cat=body-shape" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Body Shape</a></li>
+                                            <li><a href="tienda.html?cat=calentador-gel" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Calentador de Gel</a></li>
+                                            <li><a href="tienda.html?cat=hiperbarica" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Cámara Hiperbárica</a></li>
+                                            <li><a href="tienda.html?cat=carboxiterapia" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Carboxiterapia</a></li>
+                                            <li><a href="tienda.html?cat=cavitacion" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Cavitación</a></li>
+                                            <li><a href="tienda.html?cat=criofrecuencia" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Criofrecuencia</a></li>
+                                            <li><a href="tienda.html?cat=criolipolisis" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Criolipólisis</a></li>
+                                            <li><a href="tienda.html?cat=depilacion" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Depilación</a></li>
+                                            <li><a href="tienda.html?cat=electroestimuladores" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Electroestimuladores</a></li>
+                                            <li><a href="tienda.html?cat=electroporacion" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Electroporación</a></li>
+                                            <li><a href="tienda.html?cat=faja-reductora" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Faja Reductora</a></li>
+                                        </ul>
+                                        <ul class="space-y-2">
+                                            <li><a href="tienda.html?cat=hifu" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">HIFU</a></li>
+                                            <li><a href="tienda.html?cat=laser" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Láser</a></li>
+                                            <li><a href="tienda.html?cat=lipolaser" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Lipoláser / Laserlipólisis</a></li>
+                                            <li><a href="tienda.html?cat=liposonix" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Liposonix</a></li>
+                                            <li><a href="tienda.html?cat=mantas-termicas" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Mantas Térmicas</a></li>
+                                            <li><a href="tienda.html?cat=mesoterapia" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Mesoterapia</a></li>
+                                            <li><a href="tienda.html?cat=mesoterapia-virtual" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Mesoterapia Virtual</a></li>
+                                            <li><a href="tienda.html?cat=ondas-choque" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Ondas de Choque</a></li>
+                                            <li><a href="tienda.html?cat=presoterapia" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Presoterapia</a></li>
+                                            <li><a href="tienda.html?cat=radiofrecuencia" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Radiofrecuencia</a></li>
+                                            <li><a href="tienda.html?cat=ultrasonido" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Ultrasonido</a></li>
+                                            <li><a href="tienda.html?cat=vacuumterapia" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Vacuumterapia</a></li>
+                                        </ul>
                                     </div>
-                                    <a href="tienda.html?brand=wonder"
-                                        class="text-xs font-black text-primary uppercase tracking-widest flex items-center gap-2 group/btn">
-                                        Ver Ahora <i data-lucide="arrow-right"
-                                            class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"></i>
+                                </div>
+                                <!-- Col 3: Faciales -->
+                                <div>
+                                    <h5 class="text-[8px] font-sync text-primary uppercase tracking-[0.3em] mb-6 border-b border-obsidiana/10 pb-3">Faciales</h5>
+                                    <ul class="space-y-2">
+                                        <li><a href="tienda.html?cat=altafrecuencia" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Altafrecuencia</a></li>
+                                        <li><a href="tienda.html?cat=analizadores" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Analizadores de Piel</a></li>
+                                        <li><a href="tienda.html?cat=galvanica" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Corriente Gálvanica</a></li>
+                                        <li><a href="tienda.html?cat=dermapen" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Dermapen</a></li>
+                                        <li><a href="tienda.html?cat=fototerapia" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Fototerapia</a></li>
+                                        <li><a href="tienda.html?cat=hidrodermo" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Hidrodermo / Hydrapeel</a></li>
+                                        <li><a href="tienda.html?cat=iontoforesis" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Iontoforesis</a></li>
+                                        <li><a href="tienda.html?cat=martillo" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Martillo frío/caliente</a></li>
+                                        <li><a href="tienda.html?cat=mascara-led" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Máscara Led</a></li>
+                                        <li><a href="tienda.html?cat=microdermo" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Microdermoabrasión</a></li>
+                                        <li><a href="tienda.html?cat=oxigenesis" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Oxigénesis</a></li>
+                                        <li><a href="tienda.html?cat=peeling-u" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Peeling Ultrasónico</a></li>
+                                        <li><a href="tienda.html?cat=radiofrecuencia-face" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Radiofrecuencia</a></li>
+                                        <li><a href="tienda.html?cat=rf-fraccionada" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">RF Fraccionada</a></li>
+                                        <li><a href="tienda.html?cat=ultrasonido-face" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Ultrasonido</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Col 4: Rehab & Insumos -->
+                                <div>
+                                    <h5 class="text-[8px] font-sync text-primary uppercase tracking-[0.3em] mb-6 border-b border-obsidiana/10 pb-3">Rehab & Insumos</h5>
+                                    <ul class="space-y-2">
+                                        <li class="mb-1"><span class="text-[7px] font-sync text-obsidiana/40 uppercase tracking-widest">Rehabilitación</span></li>
+                                        <li><a href="tienda.html?cat=rehab-electro" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Electroestimulador</a></li>
+                                        <li><a href="tienda.html?cat=rehab-manta" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Manta Térmica (Sauna)</a></li>
+                                        <li><a href="tienda.html?cat=rehab-ondas" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Ondas de Choque</a></li>
+                                        <li><a href="tienda.html?cat=rehab-preso" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Presoterapia</a></li>
+                                        <li><a href="tienda.html?cat=tecarterapia" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Tecarterapia</a></li>
+                                        <li><a href="tienda.html?cat=rehab-ultra" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Ultrasonido</a></li>
+                                        <li><a href="tienda.html?cat=vapor-ozono" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Vapor Ozono</a></li>
+                                        
+                                        <li class="mt-3 mb-1"><span class="text-[7px] font-sync text-obsidiana/40 uppercase tracking-widest">Insumos</span></li>
+                                        <li><a href="tienda.html?cat=hydraboost" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Activos Hydraboost</a></li>
+                                        <li><a href="tienda.html?cat=membranas" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Membranas</a></li>
+                                        <li><a href="tienda.html?cat=anticongelantes" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Anticongelantes</a></li>
+                                        <li><a href="tienda.html?cat=otros-insumos" class="text-[9px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Otros Insumos</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Col 5: Premium -->
+                                <div class="flex flex-col gap-4">
+                                    <h5 class="text-[8px] font-sync text-primary uppercase tracking-[0.3em] mb-2 border-b border-obsidiana/10 pb-3">Premium</h5>
+                                    <a href="tienda.html?brand=wonder" class="group/brand glass-effect p-4 border border-obsidiana/5 hover:border-primary transition-colors">
+                                        <span class="text-[9px] font-sync text-obsidiana uppercase block mb-1">WONDER®</span>
+                                        <span class="text-[7px] font-sync text-primary uppercase tracking-widest block opacity-0 group-hover/brand:opacity-100 transition-opacity">Muscle Tech <i data-lucide="arrow-right" class="w-2 h-2 inline"></i></span>
                                     </a>
-                                </div>
-                                <div
-                                    class="flex-1 bg-gray-50 rounded-3xl p-8 border border-gray-100 flex flex-col justify-between">
-                                    <div>
-                                        <span
-                                            class="text-xs font-black text-primary uppercase tracking-widest mb-2 block">Marca
-                                            Exclusiva</span>
-                                        <h4 class="font-sync text-lg tracking-tighter mb-2">LEGOLÁSER®</h4>
-                                        <p
-                                            class="text-xs text-gray-400 font-bold uppercase tracking-widest leading-tight">
-                                            Master en Depilación Triláser.</p>
-                                    </div>
-                                    <a href="tienda.html?brand=legolaser"
-                                        class="text-xs font-black text-primary uppercase tracking-widest flex items-center gap-2 group/btn">
-                                        Ver Ahora <i data-lucide="arrow-right"
-                                            class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"></i>
+                                    <a href="tienda.html?brand=legolaser" class="group/brand glass-effect p-4 border border-obsidiana/5 hover:border-primary transition-colors">
+                                        <span class="text-[9px] font-sync text-obsidiana uppercase block mb-1">LEGOLÁSER®</span>
+                                        <span class="text-[7px] font-sync text-primary uppercase tracking-widest block opacity-0 group-hover/brand:opacity-100 transition-opacity">Elite Laser <i data-lucide="arrow-right" class="w-2 h-2 inline"></i></span>
+                                    </a>
+                                    <a href="tienda.html" class="text-[8px] font-sync text-obsidiana/40 hover:text-primary transition-colors uppercase tracking-widest mt-auto flex items-center gap-2">
+                                        Ver todas las categorías <i data-lucide="plus" class="w-3 h-3"></i>
                                     </a>
                                 </div>
                             </div>
@@ -243,300 +145,119 @@
                     </div>
                 </div>
 
-                <a href="cursos.html"
-                    class="text-xs font-extrabold uppercase tracking-widest text-secondary hover:text-primary transition-colors">Formación</a>
-                <a href="nosotros.html"
-                    class="text-xs font-extrabold uppercase tracking-widest text-secondary hover:text-primary transition-colors">Nosotros</a>
-                <a href="servicio-tecnico.html"
-                    class="text-xs font-extrabold uppercase tracking-widest text-secondary hover:text-primary transition-colors">Soporte</a>
-                <a href="contacto.html"
-                    class="text-xs font-extrabold uppercase tracking-widest text-secondary hover:text-primary transition-colors">Contacto</a>
+                <a href="cursos.html" class="text-[10px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Academy</a>
+                <a href="nosotros.html" class="text-[10px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Nosotros</a>
+                <a href="servicio-tecnico.html" class="text-[10px] font-sync text-obsidiana hover:text-primary transition-colors uppercase">Soporte</a>
+                <a href="contacto.html" class="text-[10px] font-sync text-primary hover:text-primary transition-colors uppercase">Contacto</a>
             </nav>
 
             <!-- Right Actions -->
-            <div class="flex items-center gap-4">
-                <button class="hidden lg:flex p-2 hover:bg-gray-50 rounded-full transition-colors group">
-                    <i data-lucide="search"
-                        class="w-4 h-4 text-secondary group-hover:text-primary transition-colors"></i>
+            <div class="flex items-center gap-6">
+                <button class="p-2 text-obsidiana hover:text-primary transition-colors">
+                    <i data-lucide="search" class="w-4 h-4"></i>
                 </button>
-                <button id="cart-trigger"
-                    class="hidden lg:flex p-2 hover:bg-gray-50 rounded-full transition-colors relative group">
-                    <i data-lucide="shopping-bag"
-                        class="w-4 h-4 text-secondary group-hover:text-primary transition-colors"></i>
-                    <span
-                        class="absolute -top-1 -right-1 w-4 h-4 bg-primary text-[8px] text-white flex items-center justify-center rounded-full font-black">2</span>
+                <button id="cart-trigger" class="p-2 text-obsidiana hover:text-primary transition-colors relative">
+                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                    <span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full"></span>
                 </button>
-                <button id="mobile-menu-trigger" class="lg:hidden p-2 hover:bg-gray-50 rounded-full transition-colors">
+                <button id="mobile-menu-trigger" class="lg:hidden p-2 text-obsidiana hover:text-primary transition-colors">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Premium Mobile Menu Overlay -->
-    <div id="mobile-menu"
-        class="fixed inset-y-0 right-0 w-full md:w-[450px] bg-white z-[100] transform translate-x-full transition-transform duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] shadow-[-20px_0_60px_rgba(0,0,0,0.1)] lg:hidden">
-        <div class="h-full flex flex-col p-8 md:p-12">
-            <!-- Header -->
-            <div class="flex items-center justify-between mb-20">
-                <img src="assets/images/logo.webp" alt="Logo" class="h-8 w-auto">
-                <button id="mobile-menu-close"
-                    class="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center text-secondary hover:bg-primary hover:text-white transition-all duration-300">
-                    <i data-lucide="x" class="w-5 h-5"></i>
-                </button>
-            </div>
-
-            <!-- Search in Mobile Menu -->
-            <div class="relative mb-10">
-                <input type="text" placeholder="Buscador de productos..."
-                    class="w-full bg-gray-50 border border-gray-100 rounded-xl px-12 py-4 text-xs font-bold uppercase tracking-widest outline-none focus:ring-2 focus:ring-primary/20 transition-all">
-                <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
-            </div>
-
-            <!-- Navigation -->
-            <nav class="flex flex-col space-y-1">
-                <a href="index.html"
-                    class="group flex items-center justify-between py-5 border-b border-gray-50 text-base font-sync tracking-tighter text-secondary hover:text-primary transition-all">
-                    <span>INICIO</span>
-                    <i data-lucide="arrow-right"
-                        class="w-4 h-4 -translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all"></i>
-                </a>
-                <a href="tienda.html"
-                    class="group flex items-center justify-between py-5 border-b border-gray-50 text-base font-sync tracking-tighter text-secondary hover:text-primary transition-all">
-                    <span>TIENDA</span>
-                    <i data-lucide="arrow-right"
-                        class="w-4 h-4 -translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all"></i>
-                </a>
-                <a href="cursos.html"
-                    class="group flex items-center justify-between py-5 border-b border-gray-50 text-base font-sync tracking-tighter text-secondary hover:text-primary transition-all">
-                    <span>FORMACIÓN</span>
-                    <i data-lucide="arrow-right"
-                        class="w-4 h-4 -translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all"></i>
-                </a>
-                <a href="nosotros.html"
-                    class="group flex items-center justify-between py-5 border-b border-gray-50 text-base font-sync tracking-tighter text-secondary hover:text-primary transition-all">
-                    <span>NOSOTROS</span>
-                    <i data-lucide="arrow-right"
-                        class="w-4 h-4 -translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all"></i>
-                </a>
-                <a href="contacto.html"
-                    class="group flex items-center justify-between py-5 text-base font-sync tracking-tighter text-secondary hover:text-primary transition-all">
-                    <span>CONTACTO</span>
-                    <i data-lucide="arrow-right"
-                        class="w-4 h-4 -translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all"></i>
-                </a>
-            </nav>
-
-            <!-- Bottom Section -->
-            <div class="mt-auto">
-                <button
-                    class="w-full bg-primary hover:bg-secondary text-white py-5 rounded-2xl text-xs font-black uppercase tracking-widest flex items-center justify-center gap-3 transition-all duration-500 mb-8 shadow-xl shadow-primary/20">
-                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                    Ver Carrito (2)
-                </button>
-
-                <div class="bg-gray-50 p-6 rounded-2xl mb-8 border border-gray-100">
-                    <p class="text-[9px] font-black uppercase tracking-[0.2em] text-primary mb-2 text-center">Envíos
-                        Gratis</p>
-                    <p class="text-[10px] font-bold text-gray-400 text-center uppercase tracking-widest">Sobre $49.990
-                        en todo Chile</p>
-                </div>
-
-                <div class="flex items-center justify-between pb-4">
-                    <div class="flex gap-4">
-                        <a href="#"
-                            class="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-secondary hover:bg-primary hover:text-white transition-all">
-                            <i data-lucide="instagram" class="w-4 h-4"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-secondary hover:bg-primary hover:text-white transition-all">
-                            <i data-lucide="facebook" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                    <span class="text-[10px] font-bold text-gray-300 uppercase tracking-widest">v2.0</span>
+    <main class="bg-white">
+        <!-- New Immersive Hero Split -->
+        <section class="min-h-screen flex flex-col lg:flex-row pt-20">
+            <!-- Left Side: Visual & Brand -->
+            <div class="lg:w-1/2 bg-obsidiana relative overflow-hidden flex flex-col justify-end p-12 lg:p-24">
+                <img src="assets/images/contacto_hero.webp" alt="Contacto" class="absolute inset-0 w-full h-full object-cover opacity-40 grayscale scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidiana via-obsidiana/50 to-transparent"></div>
+                
+                <div class="relative z-10 reveal-text active">
+                    <span class="text-primary font-sync text-[10px] tracking-[0.5em] block mb-8 uppercase">Conecta con Nosotros</span>
+                    <h1 class="text-6xl md:text-8xl font-sync text-white leading-none mb-12 uppercase">HABLEMOS<br>DE TU <span class="italic text-primary">ÉXITO.</span></h1>
+                    <p class="text-white/60 text-lg font-light leading-relaxed max-w-md">
+                        Estamos aquí para guiarte en cada paso de tu evolución tecnológica. Desde consultas técnicas hasta formación clínica experta.
+                    </p>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <main>
-        <!-- Contact Hero -->
-        <section class="py-32 bg-secondary relative overflow-hidden text-center">
-            <div class="absolute inset-0 bg-primary/5 -skew-y-3 translate-y-32"></div>
-            <div class="container mx-auto px-6 relative z-10">
-                <h4 class="text-primary font-bold uppercase tracking-widest text-xs mb-8">PÓNGASE EN CONTACTO</h4>
-                <h1 class="font-header text-5xl md:text-8xl text-white mb-8 tracking-tighter">
-                    ESTAMOS PARA <br><span class="text-primary italic text-glow uppercase">AYUDARTE.</span>
-                </h1>
-                <p class="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed">
-                    Resuelve tus dudas sobre aparatología, cursos certificados o servicio técnico. Equipo especializado
-                    a tu disposición.
-                </p>
-            </div>
-        </section>
-
-        <section class="py-24 md:py-40 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
-
-                    <!-- Contact Sidebar (Cards) -->
-                    <div class="lg:col-span-5 space-y-8">
-
-                        <!-- General / Sales -->
-                        <div
-                            class="p-10 bg-gray-50 rounded-[3rem] border border-gray-100 group hover:border-primary transition-all duration-500">
-                            <div class="flex items-center mb-8">
-                                <div class="p-4 bg-primary text-white rounded-2xl mr-6">
-                                    <i data-lucide="phone" class="w-6 h-6"></i>
-                                </div>
-                                <h3 class="font-header text-xl">Ventas y General</h3>
-                            </div>
-                            <div class="space-y-4 text-gray-500 font-light">
-                                <p class="flex items-center gap-4"><i data-lucide="phone-call"
-                                        class="w-4 h-4 text-primary"></i> +56 9 8950 3110</p>
-                                <p class="flex items-center gap-4"><i data-lucide="mail"
-                                        class="w-4 h-4 text-primary"></i> contacto@integrakin.cl</p>
-                                <p class="flex items-center gap-4"><i data-lucide="clock"
-                                        class="w-4 h-4 text-primary"></i> Lun - Vie: 09:00 - 18:30</p>
-                            </div>
-                        </div>
-
-                        <!-- Technical / Post-Sale -->
-                        <div
-                            class="p-10 bg-gray-50 rounded-[3rem] border border-gray-100 group hover:border-primary transition-all duration-500">
-                            <div class="flex items-center mb-8">
-                                <div class="p-4 bg-secondary text-white rounded-2xl mr-6">
-                                    <i data-lucide="wrench" class="w-6 h-6"></i>
-                                </div>
-                                <h3 class="font-header text-xl text-secondary">Servicio Técnico</h3>
-                            </div>
-                            <div class="space-y-4 text-gray-500 font-light">
-                                <p class="flex items-center gap-4"><i data-lucide="message-square"
-                                        class="w-4 h-4 text-primary"></i> +56 9 4082 4512 (Post-Venta)</p>
-                                <p class="flex items-center gap-4"><i data-lucide="mail-plus"
-                                        class="w-4 h-4 text-primary"></i> postventa@integrakin.cl</p>
-                            </div>
-                        </div>
-
-                        <!-- Academy -->
-                        <div
-                            class="p-10 bg-gray-50 rounded-[3rem] border border-gray-100 group hover:border-primary transition-all duration-500">
-                            <div class="flex items-center mb-8">
-                                <div
-                                    class="p-4 bg-primary/10 text-primary rounded-2xl mr-6 group-hover:bg-primary group-hover:text-white transition-all">
-                                    <i data-lucide="graduation-cap" class="w-6 h-6"></i>
-                                </div>
-                                <h3 class="font-header text-xl">Inscripciones Academia</h3>
-                            </div>
-                            <div class="space-y-4 text-gray-500 font-light">
-                                <p class="flex items-center gap-4"><i data-lucide="phone"
-                                        class="w-4 h-4 text-primary"></i> +56 9 9372 6371</p>
-                            </div>
-                        </div>
-
+            <!-- Right Side: Interaction -->
+            <div class="lg:w-1/2 bg-white flex items-center justify-center p-12 lg:p-24 relative">
+                <div class="w-full max-w-xl">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 reveal-text active">
+                        <a href="https://wa.me/56989503110" class="group glass-effect p-8 border border-obsidiana/5 hover:border-primary transition-all">
+                            <span class="text-obsidiana/30 font-sync text-[8px] uppercase tracking-widest block mb-4">Ventas & Consultas</span>
+                            <span class="text-obsidiana font-sync text-xs group-hover:text-primary transition-colors">+56 9 8950 3110</span>
+                        </a>
+                        <a href="mailto:contacto@integrakin.cl" class="group glass-effect p-8 border border-obsidiana/5 hover:border-primary transition-all">
+                            <span class="text-obsidiana/30 font-sync text-[8px] uppercase tracking-widest block mb-4">Email Corporativo</span>
+                            <span class="text-obsidiana font-sync text-xs group-hover:text-primary transition-colors">contacto@integrakin.cl</span>
+                        </a>
                     </div>
 
-                    <!-- Contact Form -->
-                    <div class="lg:col-span-7">
-                        <div class="max-w-2xl px-4">
-                            <h2 class="font-header text-4xl md:text-6xl tracking-tighter mb-10 leading-none">
-                                ENVÍANOS UN <br><span class="text-primary italic">MENSAJE.</span>
-                            </h2>
-                            <form class="space-y-8">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                    <div class="space-y-2">
-                                        <label class="text-xs font-bold uppercase tracking-widest text-gray-400">Nombre
-                                            Completo</label>
-                                        <input type="text"
-                                            class="w-full bg-gray-50 border-none rounded-3xl px-8 py-5 text-sm focus:ring-2 focus:ring-primary transition-all"
-                                            placeholder="Juan Pérez">
-                                    </div>
-                                    <div class="space-y-2">
-                                        <label class="text-xs font-bold uppercase tracking-widest text-gray-400">Correo
-                                            Electrónico</label>
-                                        <input type="email"
-                                            class="w-full bg-gray-50 border-none rounded-3xl px-8 py-5 text-sm focus:ring-2 focus:ring-primary transition-all"
-                                            placeholder="correo@ejemplo.com">
-                                    </div>
+                    <!-- Modern Glass Form -->
+                    <div class="bg-surface p-12 lg:p-16 border border-obsidiana/5 rounded-2xl reveal-text">
+                        <h3 class="text-obsidiana font-sync text-sm mb-12 uppercase">Envía una consulta</h3>
+                        <form class="space-y-10">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                                <div class="border-b border-obsidiana/10 pb-4 group focus-within:border-primary transition-colors">
+                                    <label class="text-obsidiana/30 font-sync text-[8px] uppercase tracking-widest block mb-2">Nombre</label>
+                                    <input type="text" class="w-full bg-transparent font-sync text-[10px] outline-none text-obsidiana uppercase">
                                 </div>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                    <div class="space-y-2">
-                                        <label
-                                            class="text-xs font-bold uppercase tracking-widest text-gray-400">Teléfono</label>
-                                        <input type="text"
-                                            class="w-full bg-gray-50 border-none rounded-3xl px-8 py-5 text-sm focus:ring-2 focus:ring-primary transition-all"
-                                            placeholder="+56 9 ...">
-                                    </div>
-                                    <div class="space-y-2">
-                                        <label class="text-xs font-bold uppercase tracking-widest text-gray-400">Área
-                                            de Interés</label>
-                                        <select
-                                            class="w-full bg-gray-50 border-none rounded-3xl px-8 py-5 text-sm focus:ring-2 focus:ring-primary transition-all appearance-none">
-                                            <option>Aparatología / Ventas</option>
-                                            <option>Capacitación / Cursos</option>
-                                            <option>Servicio Técnico</option>
-                                            <option>Otro</option>
-                                        </select>
-                                    </div>
+                                <div class="border-b border-obsidiana/10 pb-4 group focus-within:border-primary transition-colors">
+                                    <label class="text-obsidiana/30 font-sync text-[8px] uppercase tracking-widest block mb-2">Email</label>
+                                    <input type="email" class="w-full bg-transparent font-sync text-[10px] outline-none text-obsidiana uppercase">
                                 </div>
-                                <div class="space-y-2">
-                                    <label
-                                        class="text-xs font-bold uppercase tracking-widest text-gray-400">Mensaje</label>
-                                    <textarea rows="6"
-                                        class="w-full bg-gray-50 border-none rounded-2xl px-8 py-6 text-sm focus:ring-2 focus:ring-primary transition-all"
-                                        placeholder="Escribe tu consulta aquí..."></textarea>
-                                </div>
-                                <button type="submit"
-                                    class="w-full bg-secondary text-white py-6 rounded-full font-bold uppercase tracking-widest hover:bg-primary transition-all transform hover:-translate-y-1 shadow-xl">
-                                    Enviar Consulta
-                                </button>
-                            </form>
-                        </div>
+                            </div>
+                            <div class="border-b border-obsidiana/10 pb-4 group focus-within:border-primary transition-colors">
+                                <label class="text-obsidiana/30 font-sync text-[8px] uppercase tracking-widest block mb-2">Interés</label>
+                                <select class="w-full bg-transparent font-sync text-[10px] outline-none text-obsidiana uppercase appearance-none cursor-pointer">
+                                    <option>Aparatología Médica</option>
+                                    <option>Academy & Cursos</option>
+                                    <option>Servicio Técnico</option>
+                                    <option>Insumos & Repuestos</option>
+                                </select>
+                            </div>
+                            <div class="border-b border-obsidiana/10 pb-4 group focus-within:border-primary transition-colors">
+                                <label class="text-obsidiana/30 font-sync text-[8px] uppercase tracking-widest block mb-2">Mensaje</label>
+                                <textarea rows="3" class="w-full bg-transparent font-sync text-[10px] outline-none text-obsidiana uppercase resize-none"></textarea>
+                            </div>
+                            <button class="w-full bg-obsidiana text-white py-6 font-sync text-[10px] tracking-[0.3em] hover:bg-primary transition-all uppercase rounded-sm">
+                                Enviar Solicitud
+                            </button>
+                        </form>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- Map and Office -->
-        <section class="py-24 bg-gray-50">
+        <!-- Location Section -->
+        <section class="py-60 bg-white border-t border-obsidiana/5">
             <div class="container mx-auto px-6">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-                    <div class="lg:col-span-4">
-                        <div class="inline-flex items-center gap-4 mb-8">
-                            <div class="w-10 h-1 bg-primary rounded-full"></div>
-                            <h4 class="text-xs font-bold uppercase tracking-widest text-gray-400">CENTRAL OPERATIVA
-                            </h4>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+                    <div class="lg:col-span-5 reveal-text">
+                        <span class="text-primary font-sync text-[10px] tracking-[0.5em] block mb-8 uppercase">Nuestra Base</span>
+                        <h2 class="text-5xl md:text-7xl font-sync text-obsidiana leading-none mb-12 uppercase">VISITA<br>NUESTRO <span class="italic text-primary">SHOWROOM.</span></h2>
+                        <p class="text-obsidiana/60 text-lg leading-relaxed mb-12 max-w-md">
+                            Experimenta la tecnología en vivo. Nuestra sede en Viña del Mar está equipada para demostraciones clínicas y formación personalizada.
+                        </p>
+                        <div class="p-8 border-l-2 border-primary bg-surface mb-12">
+                            <p class="text-obsidiana font-sync text-xs mb-2">CALLE LIMACHE 3363, LOCAL 10</p>
+                            <p class="text-obsidiana/40 font-sync text-[10px]">VIÑA DEL MAR, CHILE</p>
                         </div>
-                        <h2 class="font-header text-4xl mb-8 leading-tight">VIÑA DEL <br><span
-                                class="text-primary italic">MAR.</span></h2>
-                        <p class="text-gray-500 font-light text-lg mb-10 leading-relaxed">Nuestras oficinas centrales y
-                            showroom se encuentran en el corazón comercial de Viña del Mar, Chile.</p>
-
-                        <div class="flex items-start group mb-12">
-                            <div
-                                class="p-4 bg-white rounded-2xl mr-6 shadow-sm group-hover:bg-primary group-hover:text-white transition-all">
-                                <i data-lucide="map-pin" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold uppercase tracking-widest text-primary mb-1">Dirección
-                                </h4>
-                                <p class="text-lg font-bold text-secondary">Calle Limache 3363,<br>Local 10.</p>
-                            </div>
-                        </div>
-
-                        <a href="https://goo.gl/maps/..." target="_blank"
-                            class="inline-flex items-center text-xs font-bold uppercase tracking-[0.2em] text-secondary hover:text-primary transition-colors">
-                            VER EN GOOGLE MAPS <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-4 text-obsidiana font-sync text-[10px] tracking-[0.3em] hover:text-primary transition-colors uppercase">
+                            Abrir en Maps <i data-lucide="external-link" class="w-3 h-3"></i>
                         </a>
                     </div>
-                    <div class="lg:col-span-8">
-                        <div
-                            class="aspect-video rounded-3xl overflow-hidden bg-white shadow-2xl relative border-8 border-white">
+                    <div class="lg:col-span-7 reveal-text">
+                        <div class="aspect-video bg-surface rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000 shadow-2xl border border-obsidiana/5">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3344.8251212879684!2d-71.5369796!3d-33.0347204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689e0d16c5b9f97%3A0x6a38260b0d3e5a5a!2sCalle%20Limache%203363%2C%20Vi%C3%B1a%20del%20Mar%2C%20Chile!5e0!3m2!1ses!2scl!4v1711225000000!5m2!1ses!2scl"
                                 width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade" class="w-full h-full block"></iframe>
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
@@ -544,167 +265,59 @@
         </section>
     </main>
 
-    <!-- Refined Footer -->
-    <footer class="bg-[#0A0E17] text-white pt-40 pb-20 overflow-hidden relative">
-        <!-- Decoration element -->
-        <div class="absolute top-0 right-0 w-1/3 h-px bg-gradient-to-l from-primary/50 to-transparent"></div>
-
+    <!-- Cinematic Footer -->
+    <footer class="bg-obsidiana pt-40 pb-20 border-t border-white/5">
         <div class="container mx-auto px-6">
-            <!-- Newsletter Section (Enhanced Visibility) -->
-            <div
-                class="bg-primary/5 rounded-[4rem] p-12 lg:p-20 mb-32 border border-white/5 relative overflow-hidden group">
-                <div
-                    class="absolute top-0 right-0 p-20 opacity-10 group-hover:scale-110 transition-transform duration-1000">
-                    <i data-lucide="send" class="w-64 h-64 text-white"></i>
-                </div>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10 text-left">
-                    <div>
-                        <h3 class="font-header text-4xl lg:text-6xl tracking-tighter mb-6 leading-none">
-                            ÚNETE A LA <br><span class="text-primary italic">VANGUARDIA.</span>
-                        </h3>
-                        <p class="text-gray-400 text-lg font-light max-w-sm">Recibe lanzamientos exclusivos, formación
-                            técnica y ofertas solo para miembros.</p>
-                    </div>
-                    <div>
-                        <form class="flex flex-col sm:flex-row gap-4">
-                            <input type="email" placeholder="TU CORREO ELECTRÓNICO"
-                                class="flex-1 bg-white/10 border border-white/10 rounded-full px-8 py-5 text-sm font-bold uppercase tracking-widest focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none">
-                            <button
-                                class="bg-primary hover:bg-white hover:text-secondary text-white px-10 py-5 rounded-full text-xs font-black uppercase tracking-[0.2em] transition-all duration-500 whitespace-nowrap">
-                                Suscribirme
-                            </button>
-                        </form>
-                        <p class="text-[9px] text-gray-500 mt-6 uppercase tracking-widest font-bold">Al suscribirte
-                            aceptas nuestras políticas de privacidad.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-20 mb-40 text-left">
-                <div class="lg:col-span-6">
-                    <img src="assets/images/logo-bl.webp" alt="Logo" class="h-10 w-auto mb-10 opacity-80">
-                    <p class="text-gray-500 text-lg font-light leading-relaxed max-w-md mb-12">
-                        Líderes en tecnología médica estética avanzada. Equipando clínicas con los más altos estándares
-                        de calidad internacional.
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-20 mb-40">
+                <div class="md:col-span-6">
+                    <img src="assets/images/logo.webp" alt="Logo" class="h-6 mb-12 brightness-0 invert opacity-80">
+                    <p class="text-white/60 text-sm font-light max-w-sm leading-relaxed mb-12">
+                        Estableciendo el nuevo estándar en tecnología médica estética. Sistemas de élite para profesionales de élite.
                     </p>
-                    <div class="flex items-center gap-10">
-                        <a href="https://instagram.com/integrakin" target="_blank"
-                            class="text-xs font-black uppercase tracking-widest hover:text-primary transition-colors">Instagram</a>
-                        <a href="#"
-                            class="text-xs font-black uppercase tracking-widest hover:text-primary transition-colors">Facebook</a>
-                        <a href="#"
-                            class="text-xs font-black uppercase tracking-widest hover:text-primary transition-colors">LinkedIn</a>
+                    <div class="flex gap-8 text-[10px] font-sync text-white/30">
+                        <a href="#" class="hover:text-primary transition-colors uppercase tracking-widest">Instagram</a>
+                        <a href="#" class="hover:text-primary transition-colors uppercase tracking-widest">LinkedIn</a>
+                        <a href="#" class="hover:text-primary transition-colors uppercase tracking-widest">Twitter</a>
                     </div>
                 </div>
-
-                <div class="lg:col-span-3">
-                    <h5 class="text-primary text-xs font-bold tracking-widest uppercase mb-10">Navegación</h5>
-                    <ul class="space-y-6 text-xs font-black uppercase tracking-widest">
-                        <li><a href="tienda.html" class="hover:text-primary transition-colors">Tienda Online</a></li>
-                        <li><a href="cursos.html" class="hover:text-primary transition-colors">Formación Academy</a>
-                        </li>
-                        <li><a href="nosotros.html" class="hover:text-primary transition-colors">Nuestra Historia</a>
-                        </li>
-                        <li><a href="servicio-tecnico.html" class="hover:text-primary transition-colors">Soporte
-                                Técnico</a></li>
+                <div class="md:col-span-3">
+                    <h5 class="font-sync text-[10px] text-primary uppercase tracking-[0.3em] mb-10">Sistemas</h5>
+                    <ul class="space-y-4 text-[10px] font-sync text-white/60">
+                        <li><a href="tienda.html" class="hover:text-primary transition-colors uppercase">Corporal</a></li>
+                        <li><a href="tienda.html" class="hover:text-primary transition-colors uppercase">Facial</a></li>
+                        <li><a href="tienda.html" class="hover:text-primary transition-colors uppercase">Depilación</a></li>
+                        <li><a href="tienda.html" class="hover:text-primary transition-colors uppercase">Wonder Exclusivos</a></li>
                     </ul>
                 </div>
-
-                <div class="lg:col-span-3">
-                    <h5 class="text-primary text-xs font-bold tracking-widest uppercase mb-10">Legal</h5>
-                    <ul class="space-y-6 text-xs font-black uppercase tracking-widest">
-                        <li><a href="https://integrakin.cl/terminos-y-condiciones/" target="_blank"
-                                class="hover:text-primary transition-colors">Términos y condiciones</a></li>
-                        <li><a href="https://integrakin.cl/politicas-de-privacidad/" target="_blank"
-                                class="hover:text-primary transition-colors">Políticas de privacidad</a></li>
-                        <li><a href="https://integrakin.cl/politica-de-devoluciones-y-reembolsos/" target="_blank"
-                                class="hover:text-primary transition-colors">Devoluciones</a></li>
-                        <li><a href="contacto.html" class="hover:text-primary transition-colors">Contacto</a></li>
+                <div class="md:col-span-3">
+                    <h5 class="font-sync text-[10px] text-primary uppercase tracking-[0.3em] mb-10">Empresa</h5>
+                    <ul class="space-y-4 text-[10px] font-sync text-white/60">
+                        <li><a href="nosotros.html" class="hover:text-primary transition-colors uppercase">Nosotros</a></li>
+                        <li><a href="cursos.html" class="hover:text-primary transition-colors uppercase">Academy</a></li>
+                        <li><a href="servicio-tecnico.html" class="hover:text-primary transition-colors uppercase">Soporte</a></li>
+                        <li><a href="contacto.html" class="hover:text-primary transition-colors uppercase">Contacto</a></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="flex flex-col md:flex-row justify-between items-center pt-20 border-t border-white/5 gap-10">
-                <p class="text-xs font-bold uppercase tracking-widest text-gray-600">
-                    © 2026 INTEGRAKIN GLOBAL S.A. <span class="mx-4 text-white/5">|</span> HECHO POR DOZZ
-                </p>
-                <div class="flex gap-8">
-                    <!-- Pago icons placeholder or text if needed -->
-                </div>
+            <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+                <span class="text-[8px] font-sync text-white/20 tracking-[0.3em]">© 2026 INTEGRAKIN — TODOS LOS DERECHOS RESERVADOS</span>
+                <span class="text-[8px] font-sync text-white/20 tracking-[0.3em]">DESIGN BY 2ZZ.CL</span>
             </div>
         </div>
     </footer>
 
-    <!-- Cart Side Drawer (Desktop) -->
-    <div id="cart-drawer"
-        class="fixed inset-y-0 right-0 w-full sm:w-[450px] bg-white z-[120] transform translate-x-full transition-transform duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] shadow-[-20px_0_60px_rgba(0,0,0,0.1)] flex flex-col">
-        <div class="p-8 md:p-12 h-full flex flex-col">
-            <div class="flex items-center justify-between mb-12">
-                <h2 class="font-sync text-2xl tracking-tighter text-secondary uppercase">Tu <span
-                        class="text-primary italic">Pedido.</span></h2>
-                <button id="cart-drawer-close"
-                    class="w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
-                    <i data-lucide="x" class="w-5 h-5"></i>
-                </button>
-            </div>
-
-            <div class="flex-1 overflow-y-auto pr-4 -mr-4 space-y-8 scrollbar-hide">
-                <!-- Cart Item 1 -->
-                <div class="flex gap-6 group">
-                    <div class="w-24 h-24 bg-gray-50 rounded-2xl overflow-hidden shrink-0">
-                        <img src="assets/images/maquinas/1.webp"
-                            class="w-full h-full object-contain p-2 group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="flex-1">
-                        <div class="flex justify-between mb-1">
-                            <h3 class="text-[10px] font-black uppercase tracking-widest text-secondary">Wonder Precision
-                            </h3>
-                            <button class="text-gray-300 hover:text-primary transition-colors"><i data-lucide="trash-2"
-                                    class="w-4 h-4"></i></button>
-                        </div>
-                        <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-4">Mobiliario</p>
-                        <span class="text-sm font-sync tracking-tighter text-secondary">$2.490.990</span>
-                    </div>
-                </div>
-                <!-- Cart Item 2 -->
-                <div class="flex gap-6 group border-t border-gray-50 pt-8">
-                    <div class="w-24 h-24 bg-gray-50 rounded-2xl overflow-hidden shrink-0">
-                        <img src="assets/images/maquinas/3.webp"
-                            class="w-full h-full object-contain p-2 group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="flex-1">
-                        <div class="flex justify-between mb-1">
-                            <h3 class="text-[10px] font-black uppercase tracking-widest text-secondary">DermoPro Max
-                            </h3>
-                            <button class="text-gray-300 hover:text-primary transition-colors"><i data-lucide="trash-2"
-                                    class="w-4 h-4"></i></button>
-                        </div>
-                        <p class="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-4">Facial</p>
-                        <span class="text-sm font-sync tracking-tighter text-secondary">$1.299.990</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pt-10 border-t border-gray-100 mt-10">
-                <div class="flex justify-between mb-8">
-                    <span class="text-[10px] font-black uppercase tracking-widest text-gray-400">Total</span>
-                    <span class="text-2xl font-sync tracking-tighter text-secondary leading-none">$3.790.980</span>
-                </div>
-                <a href="carrito.html"
-                    class="w-full bg-secondary hover:bg-primary text-white py-6 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all duration-500 shadow-xl shadow-secondary/20">
-                    Finalizar Compra
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Backdrop Overlay -->
-    <div id="cart-overlay"
-        class="fixed inset-0 bg-black/40 backdrop-blur-sm z-[110] opacity-0 invisible transition-all duration-700">
-    </div>
-
-    <!-- Custom Scripts -->
+    <!-- Scripts -->
     <script src="assets/js/scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+             if (window.lucide) window.lucide.createIcons();
+        });
+    </script>
 </body>
-
 </html>
+
+
+
+
+

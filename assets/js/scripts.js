@@ -1,205 +1,308 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initialize Lucide Icons
-    if (window.lucide) {
-        window.lucide.createIcons();
-    }
+document.addEventListener("DOMContentLoaded", function () {
+  // 1. Initialize Lucide Icons
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
 
-    // 2. Global Data
-    const products = [
-        { name: "Wonder Precision", price: "$2.490.990", img: "assets/images/maquinas/1.webp", cat: "Musculación", featured: true },
-        { name: "LegoLaser Trio", price: "$8.990.000", img: "assets/images/maquinas/2.webp", cat: "Depilación", featured: true },
-        { name: "DermoPro Max", price: "$1.299.990", img: "assets/images/maquinas/3.webp", cat: "Facial", featured: true },
-        { name: "CryoSculpt Pro", price: "$5.490.000", img: "assets/images/maquinas/4.webp", cat: "Corporal", featured: true },
-        { name: "HIFU S-Line", price: "$4.150.000", img: "assets/images/maquinas/5.webp", cat: "Lifting", featured: true },
-        { name: "LipoPlus 360", price: "$3.890.000", img: "assets/images/maquinas/1.webp", cat: "Corporal", featured: true },
-        { name: "UltraSHR Laser", price: "$7.499.990", img: "assets/images/maquinas/2.webp", cat: "Depilación", featured: true },
-        { name: "HydroReveal", price: "$990.000", img: "assets/images/maquinas/3.webp", cat: "Facial", featured: true }
-    ];
+  // 2. Fade In on Scroll - Intersection Observer
+  (function initFadeIn() {
+    const fadeElements = document.querySelectorAll(
+      ".fade-in, .fade-in-left, .fade-in-right, .fade-in-scale, .reveal-text",
+    );
 
-    // 3. Render Helper
-    const createProductCard = (p, variant = 'slider') => {
-        const isSlider = variant === 'slider';
-        return `
-            <div class="group ${isSlider ? 'w-80 shrink-0 snap-start' : 'w-full'} bg-white rounded-2xl border border-gray-100 hover:shadow-2xl transition-all duration-500 relative">
-                <div class="aspect-square bg-gray-50 rounded-xl overflow-hidden mb-6 relative">
-                    <img src="${p.img}" alt="${p.name}" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700" loading="lazy">
-                    <span class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest text-primary shadow-sm">${p.cat}</span>
-                    
-                    <!-- Hover Action -->
-                    <div class="absolute inset-x-0 bottom-0 p-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-10">
-                        <button class="w-full bg-secondary hover:bg-primary text-white py-3 rounded-lg text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-2 shadow-xl transition-colors relative z-30">
-                            <i data-lucide="shopping-bag" class="w-3 h-3"></i>
-                            Añadir al Carrito
-                        </button>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-sync text-sm md:text-xl tracking-tighter mb-2 uppercase text-secondary leading-tight">${p.name}</h3>
-                    <p class="text-primary font-black tracking-widest text-md mb-6">${p.price}</p>
-                    <a href="producto.html" class="flex items-center justify-between text-xs font-black uppercase tracking-widest group/btn border-t border-gray-50 pt-4 after:absolute after:inset-0 after:z-20">
-                        Ver Detalles <i data-lucide="arrow-right" class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-            </div>
-        `;
+    if (!fadeElements.length) return;
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-50px",
+      threshold: 0.01,
     };
 
-    // 4. Populate Grids
-    const populateGrid = (id, data, variant) => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.innerHTML = data.map(p => createProductCard(p, variant)).join('');
-            if (window.lucide) window.lucide.createIcons();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          if (entry.target.classList.contains("reveal-text")) {
+            entry.target.classList.add("active");
+          }
+          observer.unobserve(entry.target);
         }
-    };
+      });
+    }, observerOptions);
 
-    // Index Grids (Infinite Scroll Setup)
-    const featuredItems = products.filter(p => p.featured);
-    populateGrid('featured-grid', [...featuredItems, ...featuredItems, ...featuredItems], 'slider');
+    fadeElements.forEach((el) => observer.observe(el));
+  })();
+
+  // 3. Global Data
+  const products = [
+    {
+      name: "Wonder Precision",
+      price: "$2.490.990",
+      img: "assets/images/maquinas/1.webp",
+      cat: "Musculación",
+      featured: true,
+    },
+    {
+      name: "LegoLaser Trio",
+      price: "$8.990.000",
+      img: "assets/images/maquinas/2.webp",
+      cat: "Depilación",
+      featured: true,
+    },
+    {
+      name: "DermoPro Max",
+      price: "$1.299.990",
+      img: "assets/images/maquinas/3.webp",
+      cat: "Facial",
+      featured: true,
+    },
+    {
+      name: "CryoSculpt Pro",
+      price: "$5.490.000",
+      img: "assets/images/maquinas/4.webp",
+      cat: "Corporal",
+      featured: true,
+    },
+    {
+      name: "HIFU S-Line",
+      price: "$4.150.000",
+      img: "assets/images/maquinas/5.webp",
+      cat: "Lifting",
+      featured: true,
+    },
+    {
+      name: "LipoPlus 360",
+      price: "$3.890.000",
+      img: "assets/images/maquinas/1.webp",
+      cat: "Corporal",
+      featured: true,
+    },
+    {
+      name: "UltraSHR Laser",
+      price: "$7.499.990",
+      img: "assets/images/maquinas/2.webp",
+      cat: "Depilación",
+      featured: true,
+    },
+    {
+      name: "HydroReveal",
+      price: "$990.000",
+      img: "assets/images/maquinas/3.webp",
+      cat: "Facial",
+      featured: true,
+    },
+  ];
+
+  // 3. Render Helper
+  function createProductCard(p, variant, index) {
+    variant = variant || "slider";
+    index = index || 0;
+    var isFade = variant === "fadeslider";
+    var wrapperClass = isFade
+      ? "swiper-slide"
+      : "w-full flex-none";
     
-    // Initial scroll to middle set for infinite loop
-    const fGrid = document.getElementById('featured-grid');
-    if (fGrid) {
-        setTimeout(() => {
-            fGrid.scrollLeft = fGrid.scrollWidth / 3;
-        }, 100);
+    var isDark = variant === 'dark' || variant === 'fadeslider'; // For now, featured products on index are always on dark background
+    var textClass = isDark ? "text-white" : "text-obsidiana";
+    var textMutedClass = isDark ? "text-white/40" : "text-obsidiana/40";
+    var borderClass = isDark ? "border-white/10" : "border-obsidiana/10";
+    var cardBg = isDark ? "bg-white/5 border-white/5" : "bg-white border-obsidiana/5";
+
+    var card =
+      '<div class="' + wrapperClass + '">';
+    card +=
+      '<div class="group bento-card p-5 h-full flex flex-col justify-between ' + cardBg + '">';
+    card +=
+      '<div class="aspect-square mb-5 relative overflow-hidden">';
+    card +=
+      '<img src="' +
+      p.img +
+      '" alt="' +
+      p.name +
+      '" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700" loading="lazy">';
+    card +=
+      '<span class="absolute top-0 left-0 bg-primary/10 text-primary text-[8px] font-sync px-3 py-1 tracking-widest">' +
+      p.cat +
+      "</span>";
+    card += '</div>';
+    card += '<div>';
+    card +=
+      '<h3 class="font-sync text-base tracking-tighter mb-2 ' + textClass + ' leading-tight">' +
+      p.name +
+      "</h3>";
+    card +=
+      '<p class="' + textMutedClass + ' font-sync text-[10px] mb-6 tracking-widest">' +
+      p.price +
+      "</p>";
+    card +=
+      '<div class="flex items-center justify-between">';
+    card +=
+      '<a href="producto.html" class="text-[8px] font-sync ' + textMutedClass + ' hover:text-primary transition-colors tracking-widest uppercase">Details</a>';
+    card +=
+      '<button class="w-10 h-10 border ' + borderClass + ' flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-500 group/btn">';
+    card +=
+      '<i data-lucide="plus" class="w-4 h-4 ' + textClass + ' group-hover/btn:text-white"></i></button></div></div></div></div>';
+    return card;
+  }
+
+  // 4. Populate Grids
+  function populateGrid(id, data, variant) {
+    var el = document.getElementById(id);
+    if (el) {
+      var html = "";
+      for (var i = 0; i < data.length; i++) {
+        html += createProductCard(data[i], variant, i);
+      }
+      el.innerHTML = html;
+      if (window.lucide) window.lucide.createIcons();
     }
+  }
 
-    populateGrid('offers-grid', products.slice(0, 4), 'grid');
+  // Index Grids
+  var featuredItems = products.filter(function (p) {
+    return p.featured;
+  });
+  populateGrid(
+    "featured-products-container",
+    featuredItems.concat(featuredItems),
+    "fadeslider",
+  );
 
-    // Tienda Grid
-    populateGrid('shop-grid', [...products, ...products], 'grid');
-
-    // 5. Category Marquee
-    const catContainer = document.getElementById('categories-container');
-    if (catContainer) {
-        const cats = ["CORPORALES", "FACIALES", "REHABILITACIÓN", "MOBILIARIO", "INSUMOS", "OFERTAS", "PACKS", "WONDER", "LEGOLÁSER"];
-        const html = cats.map(c => `<span class="text-3xl md:text-5xl font-sync tracking-tighter text-secondary/5 hover:text-primary transition-colors cursor-default uppercase">${c}</span>`).join('');
-        catContainer.innerHTML = html + html;
-    }
-
-    // 6. Header/Promo Logic
-    const promo = document.getElementById('promo-bar');
-    const header = document.getElementById('main-header');
-    let lastScrollY = window.scrollY;
-
-    if (header) {
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            const inner = header.querySelector('div');
-
-            // 1. Promo Hide/Show Logic
-            if (promo) {
-                if (currentScrollY < 10) {
-                    promo.style.transform = 'translateY(0)';
-                } else {
-                    promo.style.transform = 'translateY(-100%)';
-                }
-            }
-
-            // 2. Header Sticky Transition
-            if (currentScrollY > 40) {
-                header.classList.replace('top-8', 'top-0');
-            } else {
-                header.classList.replace('top-0', 'top-8');
-            }
-
-            lastScrollY = currentScrollY;
-        }, { passive: true });
-    }
-    // 7. Horizontal Scroll & Slider Logic
-    const featuredGrid = document.getElementById('featured-grid');
-    const featuredNext = [document.getElementById('featured-next'), document.getElementById('featured-next-mb')];
-    const featuredPrev = [document.getElementById('featured-prev'), document.getElementById('featured-prev-mb')];
-
-    if (featuredGrid) {
-        const scrollAmount = 350;
-        const setWidth = featuredGrid.scrollWidth / 3;
-
-        // Infinite detection
-        featuredGrid.addEventListener('scroll', () => {
-            if (featuredGrid.scrollLeft >= setWidth * 2) {
-                featuredGrid.scrollLeft = setWidth;
-            } else if (featuredGrid.scrollLeft <= 5) {
-                featuredGrid.scrollLeft = setWidth;
-            }
-        }, { passive: true });
-
-        featuredNext.forEach(btn => {
-            if (btn) btn.onclick = () => {
-                featuredGrid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                resetAutoplay();
-            };
-        });
-
-        featuredPrev.forEach(btn => {
-            if (btn) btn.onclick = () => {
-                featuredGrid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-                resetAutoplay();
-            };
-        });
-
-        // Autoplay
-        let autoplay = setInterval(() => {
-            featuredGrid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        }, 5000);
-
-        function resetAutoplay() {
-            clearInterval(autoplay);
-            autoplay = setInterval(() => {
-                featuredGrid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-            }, 5000);
+  // Initialize Swiper
+  if (typeof Swiper !== 'undefined') {
+    new Swiper('.featured-swiper', {
+      slidesPerView: 1.2,
+      spaceBetween: 24,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: '.featured-next',
+        prevEl: '.featured-prev',
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2.5,
+        },
+        1024: {
+          slidesPerView: 3.5,
+        },
+        1440: {
+          slidesPerView: 4.5,
         }
-
-        featuredGrid.addEventListener('mouseenter', () => clearInterval(autoplay));
-        featuredGrid.addEventListener('mouseleave', () => resetAutoplay());
-    }
-
-    // 8. Mobile Menu Logic
-    const mobileTrigger = document.getElementById('mobile-menu-trigger');
-    const mobileClose = document.getElementById('mobile-menu-close');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (mobileTrigger && mobileMenu) {
-        mobileTrigger.onclick = () => {
-            mobileMenu.classList.remove('translate-x-full');
-            document.body.style.overflow = 'hidden';
-        };
-    }
-
-    if (mobileClose && mobileMenu) {
-        mobileClose.onclick = () => {
-            mobileMenu.classList.add('translate-x-full');
-            document.body.style.overflow = '';
-        };
-    }
-
-    // 9. Drag-to-scroll logic
-    const sliders = document.querySelectorAll('.hide-scrollbar');
-    sliders.forEach(slider => {
-        let isDown = false, startX, scrollLeft;
-        slider.onmousedown = (e) => { isDown = true; startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft; };
-        slider.onmouseleave = () => { isDown = false; };
-        slider.onmouseup = () => { isDown = false; };
-        slider.onmousemove = (e) => {
-            if (!isDown) return;
-            const x = e.pageX - slider.offsetLeft;
-            slider.scrollLeft = scrollLeft - (x - startX) * 2;
-        };
+      }
     });
+  }
 
-    // 10. Product Detail Page Logic
-    const prodContainer = document.getElementById('product-container');
-    if (prodContainer) {
-        // Pick a product (using first one as default demo)
-        const p = products[0]; 
-        
-        // Update Breadcrumb
-        const breadcrumb = document.getElementById('product-breadcrumb');
-        if (breadcrumb) breadcrumb.innerText = p.name;
+  populateGrid("offers-grid", products.slice(0, 4), "grid");
+  populateGrid("shop-grid", products.concat(products), "grid");
 
-        // Render Product HTML
-        prodContainer.innerHTML = `
+  // 5. Category Marquee
+  const catContainer = document.getElementById("categories-container");
+  if (catContainer) {
+    const cats = [
+      { name: "CORPORALES", link: "tienda.html?cat=body-shape" },
+      { name: "FACIALES", link: "tienda.html?cat=analizadores-de-piel" },
+      { name: "REHABILITACIÓN", link: "tienda.html?cat=electroestimulador" },
+      { name: "MOBILIARIO", link: "tienda.html?cat=mobiliario" },
+      { name: "INSUMOS", link: "tienda.html?cat=insumos-y-repuestos" },
+      { name: "OFERTAS", link: "tienda.html?cat=ofertas" },
+      { name: "WONDER", link: "tienda.html?brand=wonder" },
+      { name: "LEGOLÁSER", link: "tienda.html?brand=legolaser" },
+    ];
+    const html = cats
+      .map(
+        (c) =>
+          `<div class="flex items-center gap-4"><span class="w-1 h-1 bg-primary rounded-full"></span><a href="${c.link}" class="hover:text-obsidiana transition-colors">${c.name}</a></div>`,
+      )
+      .join("");
+    catContainer.innerHTML = html + html;
+  }
+
+  // 6. Header Logic
+  const header = document.getElementById("main-header");
+  const promoBar = document.getElementById("promo-bar");
+  
+  if (header) {
+    const megaMenus = document.querySelectorAll(".mega-menu-dropdown");
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (window.scrollY > 20) {
+          header.style.top = "0";
+          header.classList.add("py-0");
+          header.classList.remove("top-8");
+          megaMenus.forEach(m => m.style.top = "5rem");
+          if (promoBar) promoBar.classList.add("-translate-y-full");
+        } else {
+          header.style.top = "2rem"; // top-8
+          header.classList.remove("py-0");
+          header.classList.add("top-8");
+          megaMenus.forEach(m => m.style.top = "7rem");
+          if (promoBar) promoBar.classList.remove("-translate-y-full");
+        }
+      },
+      { passive: true },
+    );
+  }
+
+  // 8. Mobile Menu Logic
+  const mobileTrigger = document.getElementById("mobile-menu-trigger");
+  const mobileClose = document.getElementById("mobile-menu-close");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (mobileTrigger && mobileMenu) {
+    mobileTrigger.onclick = () => {
+      mobileMenu.classList.remove("translate-x-full");
+      document.body.style.overflow = "hidden";
+    };
+  }
+
+  if (mobileClose && mobileMenu) {
+    mobileClose.onclick = () => {
+      mobileMenu.classList.add("translate-x-full");
+      document.body.style.overflow = "";
+    };
+  }
+
+  // 9. Drag-to-scroll logic
+  const sliders = document.querySelectorAll(".hide-scrollbar");
+  sliders.forEach((slider) => {
+    let isDown = false,
+      startX,
+      scrollLeft;
+    slider.onmousedown = (e) => {
+      isDown = true;
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    };
+    slider.onmouseleave = () => {
+      isDown = false;
+    };
+    slider.onmouseup = () => {
+      isDown = false;
+    };
+    slider.onmousemove = (e) => {
+      if (!isDown) return;
+      const x = e.pageX - slider.offsetLeft;
+      slider.scrollLeft = scrollLeft - (x - startX) * 2;
+    };
+  });
+
+  // 10. Product Detail Page Logic
+  const prodContainer = document.getElementById("product-container");
+  if (prodContainer) {
+    // Pick a product (using first one as default demo)
+    const p = products[0];
+
+    // Update Breadcrumb
+    const breadcrumb = document.getElementById("product-breadcrumb");
+    if (breadcrumb) breadcrumb.innerText = p.name;
+
+    // Render Product HTML
+    prodContainer.innerHTML = `
             <!-- Gallery -->
             <div class="space-y-6">
                 <div class="aspect-[4/5] bg-white rounded-3xl border border-gray-100 overflow-hidden group relative">
@@ -254,101 +357,103 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
 
-        const tabs = document.getElementById('product-tabs');
-        if (tabs) tabs.classList.remove('hidden');
+    const tabs = document.getElementById("product-tabs");
+    if (tabs) tabs.classList.remove("hidden");
 
-        const woocommerceDesc = document.getElementById('woocommerce-description');
-        if (woocommerceDesc) {
-            woocommerceDesc.innerHTML = `<p>El equipo <strong>${p.name}</strong> representa la cima de la innovación en ${p.cat}. Con años de investigación clínica y desarrollo de ingeniería, este equipo ha sido optimizado para proporcionar:</p><ul><li>Resultados inmediatos y duraderos.</li><li>Interfaz intuitiva para el operador.</li><li>Mínimo mantenimiento requerido.</li><li>Diseño ergonómico premium.</li></ul>`;
-        }
-
-        // Related Products Grid
-        populateGrid('related-products-grid', products.slice(1, 5), 'grid');
-
-        if (window.lucide) window.lucide.createIcons();
+    const woocommerceDesc = document.getElementById("woocommerce-description");
+    if (woocommerceDesc) {
+      woocommerceDesc.innerHTML = `<p>El equipo <strong>${p.name}</strong> representa la cima de la innovación en ${p.cat}. Con años de investigación clínica y desarrollo de ingeniería, este equipo ha sido optimizado para proporcionar:</p><ul><li>Resultados inmediatos y duraderos.</li><li>Interfaz intuitiva para el operador.</li><li>Mínimo mantenimiento requerido.</li><li>Diseño ergonómico premium.</li></ul>`;
     }
 
-    // 11. Cart Logic (Mobile vs Desktop)
-    const cartTrigger = document.getElementById('cart-trigger');
-    const cartDrawer = document.getElementById('cart-drawer');
-    const cartClose = document.getElementById('cart-drawer-close');
-    const cartOverlay = document.getElementById('cart-overlay');
-    
-    const mobileCartBtn = document.querySelector('#mobile-menu button.bg-primary');
+    // Related Products Grid
+    populateGrid("related-products-grid", products.slice(1, 5), "grid");
 
-    const openCart = (e) => {
-        if (e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-        if (window.innerWidth < 1024) {
-            window.location.href = 'carrito.html';
-        } else {
-            if (cartDrawer && cartOverlay) {
-                cartDrawer.classList.remove('translate-x-full');
-                cartOverlay.classList.remove('opacity-0', 'invisible');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-    };
+    if (window.lucide) window.lucide.createIcons();
+  }
 
-    const closeCart = (e) => {
-        if (e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-        if (cartDrawer && cartOverlay) {
-            cartDrawer.classList.add('translate-x-full');
-            cartOverlay.classList.add('opacity-0', 'invisible');
-            document.body.style.overflow = '';
-        }
-    };
+  // 11. Cart Logic (Mobile vs Desktop)
+  const cartTrigger = document.getElementById("cart-trigger");
+  const cartDrawer = document.getElementById("cart-drawer");
+  const cartClose = document.getElementById("cart-drawer-close");
+  const cartOverlay = document.getElementById("cart-overlay");
 
-    if (cartTrigger) cartTrigger.addEventListener('click', openCart);
-    if (cartClose) cartClose.addEventListener('click', closeCart);
-    if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
-    if (mobileCartBtn) mobileCartBtn.addEventListener('click', openCart);
+  const mobileCartBtn = document.querySelector(
+    "#mobile-menu button.bg-primary",
+  );
+
+  const openCart = (e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    if (cartDrawer && cartOverlay) {
+      cartDrawer.classList.remove("translate-x-full");
+      cartOverlay.classList.remove("opacity-0", "invisible");
+      document.body.style.overflow = "hidden";
+    }
+  };
+
+  const closeCart = (e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    if (cartDrawer && cartOverlay) {
+      cartDrawer.classList.add("translate-x-full");
+      cartOverlay.classList.add("opacity-0", "invisible");
+      document.body.style.overflow = "";
+    }
+  };
+
+  if (cartTrigger) cartTrigger.addEventListener("click", openCart);
+  if (cartClose) cartClose.addEventListener("click", closeCart);
+  if (cartOverlay) cartOverlay.addEventListener("click", closeCart);
+  if (mobileCartBtn) mobileCartBtn.addEventListener("click", openCart);
 });
 
 // Global Tab Switcher
 window.switchTab = (tabName) => {
-    // Hide all tab contents
-    const contents = ['tab-description', 'tab-reviews', 'tab-specs'];
-    contents.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.classList.add('hidden');
-    });
+  // Hide all tab contents
+  const contents = ["tab-description", "tab-reviews", "tab-specs"];
+  contents.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.classList.add("hidden");
+  });
 
-    // Remove active styles from all buttons
-    const btns = ['tab-btn-description', 'tab-btn-reviews', 'tab-btn-specs'];
-    btns.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.classList.remove('text-primary', 'border-primary');
-            el.classList.add('text-gray-400', 'border-transparent');
-        }
-    });
-
-    // Show selected and set active
-    const selectedTab = document.getElementById(`tab-${tabName}`);
-    if (selectedTab) selectedTab.classList.remove('hidden');
-
-    const selectedBtn = document.getElementById(`tab-btn-${tabName}`);
-    if (selectedBtn) {
-        selectedBtn.classList.add('text-primary', 'border-primary');
-        selectedBtn.classList.remove('text-gray-400', 'border-transparent');
+  // Remove active styles from all buttons
+  const btns = ["tab-btn-description", "tab-btn-reviews", "tab-btn-specs"];
+  btns.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.classList.remove("text-primary", "border-primary");
+      el.classList.add("text-gray-400", "border-transparent");
     }
+  });
+
+  // Show selected and set active
+  const selectedTab = document.getElementById(`tab-${tabName}`);
+  if (selectedTab) selectedTab.classList.remove("hidden");
+
+  const selectedBtn = document.getElementById(`tab-btn-${tabName}`);
+  if (selectedBtn) {
+    selectedBtn.classList.add("text-primary", "border-primary");
+    selectedBtn.classList.remove("text-gray-400", "border-transparent");
+  }
 };
 
 // Video Mute Toggle
 function toggleMute(videoId) {
-    const v = document.getElementById(videoId);
-    if (!v) return;
-    v.muted = !v.muted;
-    const off = document.getElementById('mute-icon-off-hero') || document.getElementById('mute-icon-off');
-    const on = document.getElementById('mute-icon-on-hero') || document.getElementById('mute-icon-on');
-    if (off && on) {
-        off.classList.toggle('hidden', !v.muted);
-        on.classList.toggle('hidden', v.muted);
-    }
+  const v = document.getElementById(videoId);
+  if (!v) return;
+  v.muted = !v.muted;
+  const off =
+    document.getElementById("mute-icon-off-hero") ||
+    document.getElementById("mute-icon-off");
+  const on =
+    document.getElementById("mute-icon-on-hero") ||
+    document.getElementById("mute-icon-on");
+  if (off && on) {
+    off.classList.toggle("hidden", !v.muted);
+    on.classList.toggle("hidden", v.muted);
+  }
 }

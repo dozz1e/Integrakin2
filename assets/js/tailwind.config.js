@@ -2,49 +2,40 @@ tailwind.config = {
     theme: {
         extend: {
             colors: {
-                primary: '#1F88B6',
-                secondary: '#111827',
-                accent: '#F3F4F6',
-                purple: '#A558A5',
-                medical: {
-                    50: '#F0F9FF',
-                    100: '#E0F2FE',
-                    500: '#1F88B6',
-                    900: '#0C4A6E',
-                }
+                primary: '#1075B5', // Azul corporativo Integrakin
+                secondary: '#F5F5F7', // Gris técnico claro (Apple Style)
+                accent: '#BD00FF', // Púrpura tecnológico
+                surface: '#F3F3F5', // Gris editorial suave para profundidad
+                muted: '#86868B', // Gris suave editorial
+                obsidiana: '#111827', // Fondo oscuro premium
             },
             fontSize: {
                 'xxs': '0.625rem', // 10px
                 'tiny': '0.5rem',  // 8px
-            },
-            zIndex: {
-                '60': '60',
-                '70': '70',
-                '100': '100',
+                '10xl': '10rem',
+                '12xl': '12rem',
             },
             spacing: {
-                '150': '37.5rem', // 600px
-                '175': '43.75rem', // 700px
-            },
-            minHeight: {
                 '150': '37.5rem',
                 '175': '43.75rem',
-            },
-            aspectRatio: {
-                'portrait': '9/16',
-                'card': '4/5',
+                '200': '50rem',
             },
             fontFamily: {
                 sans: ['Plus Jakarta Sans', 'sans-serif'],
-                header: ['Syncopate', 'sans-serif'],
+                sync: ['Syncopate', 'sans-serif'],
             },
             animation: {
-                'marquee': 'marquee 25s linear infinite',
+                'marquee': 'marquee 40s linear infinite',
+                'reveal': 'reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
             },
             keyframes: {
                 marquee: {
                     '0%': { transform: 'translateX(0%)' },
                     '100%': { transform: 'translateX(-50%)' },
+                },
+                reveal: {
+                    '0%': { transform: 'translateY(100%)', opacity: '0' },
+                    '100%': { transform: 'translateY(0)', opacity: '1' },
                 }
             }
         }
