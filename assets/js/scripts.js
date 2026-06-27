@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
     card +=
       '<div class="group bento-card p-5 h-full flex flex-col justify-between ' + cardBg + '">';
     card +=
-      '<div class="aspect-square mb-5 relative overflow-hidden">';
+      '<a href="producto.html?id=' + encodeURIComponent(p.name) + '" class="block aspect-square mb-5 relative overflow-hidden">';
     card +=
       '<img src="' +
       p.img +
@@ -124,12 +124,15 @@ document.addEventListener("DOMContentLoaded", function () {
       '<span class="absolute top-0 left-0 bg-primary/10 text-primary text-[8px] font-sync px-3 py-1 tracking-widest">' +
       p.cat +
       "</span>";
-    card += '</div>';
+    card += '</a>';
     card += '<div>';
+    card +=
+      '<a href="producto.html?id=' + encodeURIComponent(p.name) + '" class="block hover:text-primary transition-colors">';
     card +=
       '<h3 class="font-sync text-base tracking-tighter mb-2 ' + textClass + ' leading-tight">' +
       p.name +
       "</h3>";
+    card += '</a>';
     card +=
       '<p class="' + textMutedClass + ' font-sync text-[10px] mb-6 tracking-widest">' +
       p.price +
@@ -137,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
     card +=
       '<div class="flex items-center justify-between">';
     card +=
-      '<a href="producto.html" class="text-[8px] font-sync ' + textMutedClass + ' hover:text-primary transition-colors tracking-widest uppercase">Details</a>';
+      '<a href="producto.html?id=' + encodeURIComponent(p.name) + '" class="text-[8px] font-sync ' + textMutedClass + ' hover:text-primary transition-colors tracking-widest uppercase">Details</a>';
     card +=
       '<button class="w-10 h-10 border ' + borderClass + ' flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-500 group/btn">';
     card +=
@@ -294,12 +297,25 @@ document.addEventListener("DOMContentLoaded", function () {
   // 10. Product Detail Page Logic
   const prodContainer = document.getElementById("product-container");
   if (prodContainer) {
-    // Pick a product (using first one as default demo)
-    const p = products[0];
+    // Parse URL parameter to determine which product to show
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    
+    let p = products[0]; // fallback
+    if (productId) {
+      const decodedId = decodeURIComponent(productId).toLowerCase().replace(/\s+/g, '');
+      const foundProduct = products.find(prod => prod.name.toLowerCase().replace(/\s+/g, '') === decodedId);
+      if (foundProduct) {
+        p = foundProduct;
+      }
+    }
+
+    // Update dynamic document title
+    document.title = `${p.name} | Integrakin Medicina Estética`;
 
     // Update Breadcrumb
     const breadcrumb = document.getElementById("product-breadcrumb");
-    if (breadcrumb) breadcrumb.innerText = p.name;
+    if (breadcrumb) breadcrumb.innerText = p.name.toUpperCase();
 
     // Render Product HTML
     prodContainer.innerHTML = `
@@ -344,7 +360,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <input type="number" value="1" class="w-12 bg-transparent text-center font-bold text-secondary outline-none pointer-events-none">
                             <button class="w-12 h-12 flex items-center justify-center hover:text-primary transition-colors"><i data-lucide="plus" class="w-4 h-4"></i></button>
                         </div>
-                        <button class="flex-1 bg-secondary hover:bg-primary text-white py-5 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-500 shadow-xl shadow-secondary/20 flex items-center justify-center gap-3">
+                        <button class="flex-1 bg-primary hover:bg-obsidiana text-white py-5 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-500 shadow-xl shadow-primary/20 flex items-center justify-center gap-3">
                             <i data-lucide="shopping-bag" class="w-5 h-5"></i>
                             Añadir al Carrito
                         </button>
@@ -365,13 +381,82 @@ document.addEventListener("DOMContentLoaded", function () {
       woocommerceDesc.innerHTML = `<p>El equipo <strong>${p.name}</strong> representa la cima de la innovación en ${p.cat}. Con años de investigación clínica y desarrollo de ingeniería, este equipo ha sido optimizado para proporcionar:</p><ul><li>Resultados inmediatos y duraderos.</li><li>Interfaz intuitiva para el operador.</li><li>Mínimo mantenimiento requerido.</li><li>Diseño ergonómico premium.</li></ul>`;
     }
 
-    // Related Products Grid
-    populateGrid("related-products-grid", products.slice(1, 5), "grid");
+    // Related Products Grid (excluding currently viewed product)
+    const related = products.filter(prod => prod.name !== p.name).slice(0, 4);
+    populateGrid("related-products-grid", related, "grid");
 
     if (window.lucide) window.lucide.createIcons();
   }
 
   // 11. Cart Logic (Mobile vs Desktop)
+  // Dynamic Injection of Cart Drawer on pages that don't have it
+  if (!document.getElementById("cart-drawer")) {
+    const drawerHtml = `
+    <div id="cart-drawer" class="fixed inset-y-0 right-0 w-full sm:w-[450px] z-[120] translate-x-full transition-transform duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] shadow-2xl flex flex-col glass-effect">
+        <div class="p-12 h-full flex flex-col relative z-10">
+            <div class="flex items-center justify-between mb-16">
+                <h2 class="font-sync text-2xl tracking-tighter text-obsidiana uppercase">Tu <span class="text-primary italic">Pedido.</span></h2>
+                <button id="cart-drawer-close" class="p-4 rounded-full bg-surface text-obsidiana">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto pr-4 -mr-4 space-y-10 scrollbar-hide">
+                <!-- Cart Item 1 -->
+                <div class="flex gap-8 group">
+                    <div class="w-24 h-24 bg-surface p-4 border border-obsidiana/5 shrink-0 overflow-hidden">
+                        <img src="assets/images/maquinas/1.webp" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex justify-between mb-2">
+                            <h3 class="text-[10px] font-sync text-obsidiana uppercase tracking-widest">Wonder Precision</h3>
+                            <button class="text-obsidiana/20 hover:text-primary transition-colors"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                        </div>
+                        <p class="text-[9px] font-sync text-obsidiana/70 uppercase mb-4 tracking-widest">Mobiliario</p>
+                        <span class="text-sm font-sync tracking-tighter text-obsidiana">$2.490.990</span>
+                    </div>
+                </div>
+                <!-- Cart Item 2 -->
+                <div class="flex gap-8 group pt-10 border-t border-obsidiana/5">
+                    <div class="w-24 h-24 bg-surface p-4 border border-obsidiana/5 shrink-0 overflow-hidden">
+                        <img src="assets/images/maquinas/3.webp" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex justify-between mb-2">
+                            <h3 class="text-[10px] font-sync text-obsidiana uppercase tracking-widest">DermoPro Max</h3>
+                            <button class="text-obsidiana/20 hover:text-primary transition-colors"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                        </div>
+                        <p class="text-[9px] font-sync text-obsidiana/70 uppercase mb-4 tracking-widest">Facial</p>
+                        <span class="text-sm font-sync tracking-tighter text-obsidiana">$1.299.990</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-12 border-t border-obsidiana/5 mt-10">
+                <div class="flex justify-between mb-10 items-end">
+                    <span class="text-[10px] font-sync text-obsidiana/70 uppercase tracking-widest">Total</span>
+                    <span class="text-3xl font-sync tracking-tighter text-obsidiana">$3.790.980</span>
+                </div>
+                <a href="carrito.html" class="w-full bg-primary hover:bg-obsidiana text-white py-6 text-[10px] font-sync tracking-[0.3em] flex items-center justify-center gap-4 transition-all duration-500 uppercase shadow-lg shadow-primary/20">
+                    Finalizar Compra
+                </a>
+            </div>
+        </div>
+    </div>
+    `;
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = drawerHtml.trim();
+    document.body.appendChild(tempDiv.firstChild);
+    if (window.lucide) window.lucide.createIcons();
+  }
+
+  if (!document.getElementById("cart-overlay")) {
+    const overlayDiv = document.createElement("div");
+    overlayDiv.id = "cart-overlay";
+    overlayDiv.className = "fixed inset-0 bg-black/40 backdrop-blur-sm z-[110] opacity-0 invisible transition-all duration-700";
+    document.body.appendChild(overlayDiv);
+  }
+
   const cartTrigger = document.getElementById("cart-trigger");
   const cartDrawer = document.getElementById("cart-drawer");
   const cartClose = document.getElementById("cart-drawer-close");

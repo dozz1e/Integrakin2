@@ -2,7 +2,7 @@ tailwind.config = {
     theme: {
         extend: {
             colors: {
-                primary: '#1075B5', // Azul corporativo Integrakin
+                primary: '#1075B4', // Azul corporativo Integrakin
                 secondary: '#F5F5F7', // Gris técnico claro (Apple Style)
                 accent: '#BD00FF', // Púrpura tecnológico
                 surface: '#F3F3F5', // Gris editorial suave para profundidad

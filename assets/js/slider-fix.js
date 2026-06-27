@@ -26,7 +26,7 @@
             html += '<span class="text-xs font-black uppercase text-secondary border-t border-gray-50 pt-4 block">Ver Detalles →</span>';
             html += '</div>';
             html += '<div class="absolute inset-x-0 bottom-0 p-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-10">';
-            html += '<button class="w-full bg-secondary hover:bg-primary text-white py-3 rounded-lg text-[10px] font-black uppercase">Añadir al Carrito</button>';
+            html += '<button class="w-full bg-primary hover:bg-obsidiana text-white py-3 rounded-lg text-[10px] font-black uppercase shadow-lg shadow-primary/20">Añadir al Carrito</button>';
             html += '</div>';
             html += '</div>';
             html += '</a>';
